@@ -120,6 +120,7 @@ function BrandingAssetCard({
 function Section2() {
   const navigate = useNavigate()
   const { businessForm, setBusinessForm } = useBusinessForm()
+  const [submitAttempted, setSubmitAttempted] = useState(false)
   const [logoAsset, setLogoAsset] = useState<AssetState>(() => {
     const storedAsset = getStoredBrandAsset('logo')
 
@@ -148,6 +149,13 @@ function Section2() {
         : null,
     )
   })
+  const canContinue =
+    businessForm.logo.trim().length > 0 &&
+    businessForm.header.trim().length > 0 &&
+    !logoAsset.isUploading &&
+    !bannerAsset.isUploading &&
+    !logoAsset.error &&
+    !bannerAsset.error
 
   const handleUpload = async (
     field: 'logo' | 'header',
@@ -222,6 +230,16 @@ function Section2() {
     setAssetState(createInitialAssetState())
   }
 
+  const handleNext = () => {
+    setSubmitAttempted(true)
+
+    if (!canContinue) {
+      return
+    }
+
+    navigate('/forms/location')
+  }
+
   return (
     <section className="branding-step-card" aria-label="Branding">
       <div className="branding-step-tabs" aria-label="Form progress">
@@ -246,6 +264,9 @@ function Section2() {
           onUpload={(file) => handleUpload('logo', 'logo', file)}
           onDelete={() => handleDelete('logo')}
         />
+        {submitAttempted && !businessForm.logo.trim() ? (
+          <p className="branding-upload-error">Business logo is required.</p>
+        ) : null}
         <p className="branding-upload-note">
           Recommended size: square image with a 1:1 ratio. Accepted formats:
           PNG, JPG, JPEG. Max file size: 5MB.
@@ -259,6 +280,9 @@ function Section2() {
           onUpload={(file) => handleUpload('header', 'banner', file)}
           onDelete={() => handleDelete('header')}
         />
+        {submitAttempted && !businessForm.header.trim() ? (
+          <p className="branding-upload-error">Business banner is required.</p>
+        ) : null}
         <p className="branding-upload-note">
           Recommended size: wide image with a 2:1 ratio. Accepted formats:
           PNG, JPG, JPEG. Max file size: 5MB.
@@ -273,7 +297,9 @@ function Section2() {
         >
           Back
         </Button>
-        <Button size="lg">Next</Button>
+        <Button size="lg" onClick={handleNext}>
+          Next
+        </Button>
       </div>
     </section>
   )

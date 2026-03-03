@@ -1,0 +1,141 @@
+.review-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.review-title {
+  margin: 0;
+  color: #2e3238;
+  font-size: 1.95rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.review-body {
+  display: grid;
+  gap: 1.35rem;
+  width: min(100%, 24rem);
+  margin: 0 auto;
+}
+
+.review-field {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.review-field label {
+  color: #6a7482;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.review-slug-shell {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  overflow: hidden;
+  border: 1px solid #d7dbe3;
+  border-radius: 999px;
+  background: #fafafb;
+}
+
+.review-slug-prefix {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  color: #8994a2;
+  border-right: 1px solid #d7dbe3;
+  background: #ffffff;
+  white-space: nowrap;
+}
+
+.review-slug-input.ui-input {
+  min-width: 0;
+  border: 0;
+  border-radius: 0;
+  background: #e8eaee;
+  box-shadow: none;
+}
+
+.review-days-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+.review-day-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #606b79;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.review-image-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 6.9rem;
+  overflow: hidden;
+  border: 1px solid #d7dbe3;
+  border-radius: 1rem;
+  background: #fbfbfc;
+  color: #8a95a5;
+}
+
+.review-image-card--banner {
+  min-height: 7.8rem;
+}
+
+.review-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.review-map-shell {
+  overflow: hidden;
+  height: 12rem;
+  width: 100%;
+  border: 1px solid #d7dbe3;
+  border-radius: 1rem;
+  background: #fbfbfc;
+}
+
+.review-map-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #8a95a5;
+  font-size: 0.92rem;
+}
+
+.review-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.9rem;
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .review-title {
+    font-size: 1.65rem;
+  }
+
+  .review-body {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .review-actions {
+    flex-direction: row;
+  }
+
+  .review-actions .ui-button {
+    flex: 1;
+    min-width: 0;
+  }
+}

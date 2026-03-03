@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { customAlphabet } from 'nanoid'
 import { useNavigate } from 'react-router-dom'
 
@@ -41,6 +42,13 @@ function buildSlug(value: string) {
 function Section1() {
   const navigate = useNavigate()
   const { businessForm, setBusinessForm } = useBusinessForm()
+  const [submitAttempted, setSubmitAttempted] = useState(false)
+  const hasOpeningDaySelected = businessForm.schedule.some((day) => day.enabled)
+  const canContinue =
+    businessForm.name.trim().length > 0 &&
+    businessForm.slug.trim().length > 0 &&
+    businessForm.description.trim().length > 0 &&
+    hasOpeningDaySelected
 
   const updateField = <K extends keyof typeof businessForm>(
     field: K,
@@ -69,6 +77,16 @@ function Section1() {
     }))
   }
 
+  const handleNext = () => {
+    setSubmitAttempted(true)
+
+    if (!canContinue) {
+      return
+    }
+
+    navigate('/forms/branding')
+  }
+
   return (
     <section className="form-step-card" aria-label="Business Identity">
       <div className="form-step-tabs" aria-label="Form progress">
@@ -84,10 +102,14 @@ function Section1() {
           <label htmlFor="business-name">Business Name</label>
           <Input
             id="business-name"
+            required
             placeholder="TechSmart Inc"
             value={businessForm.name}
             onChange={(event) => handleNameChange(event.target.value)}
           />
+          {submitAttempted && !businessForm.name.trim() ? (
+            <p className="form-field-error">Business name is required.</p>
+          ) : null}
         </div>
 
         <div className="form-field">
@@ -105,10 +127,14 @@ function Section1() {
           <label htmlFor="business-description">Description</label>
           <Textarea
             id="business-description"
+            required
             placeholder=""
             value={businessForm.description}
             onChange={(event) => updateField('description', event.target.value)}
           />
+          {submitAttempted && !businessForm.description.trim() ? (
+            <p className="form-field-error">Description is required.</p>
+          ) : null}
         </div>
 
         <div className="form-field">
@@ -124,6 +150,9 @@ function Section1() {
               </label>
             ))}
           </div>
+          {submitAttempted && !hasOpeningDaySelected ? (
+            <p className="form-field-error">Select at least one opening day.</p>
+          ) : null}
         </div>
       </div>
 
@@ -131,7 +160,7 @@ function Section1() {
         <Button variant="secondary" size="lg" onClick={() => navigate('/')}>
           Back
         </Button>
-        <Button size="lg" onClick={() => navigate('/forms/branding')}>
+        <Button size="lg" onClick={handleNext}>
           Next
         </Button>
       </div>

@@ -1,16 +1,16 @@
-.form-step-card {
+.contact-step-card {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.form-step-tabs {
+.contact-step-tabs {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.25rem;
 }
 
-.form-step-tab {
+.contact-step-tab {
   position: relative;
   padding-bottom: 1rem;
   color: #3f454f;
@@ -18,7 +18,7 @@
   text-align: center;
 }
 
-.form-step-tab::after {
+.contact-step-tab::after {
   content: "";
   position: absolute;
   left: 0;
@@ -29,65 +29,40 @@
   background: #d0d0d0;
 }
 
-.form-step-tab .is-active::after,
-.form-step-tab .is-active {
-  color: #34373d;
-}
-
-.form-step-tab:has(.is-active)::after {
+.contact-step-tab.is-complete::after,
+.contact-step-tab.is-active::after {
   background: #109b9b;
 }
 
-.form-step-body {
+.contact-step-body {
   display: grid;
-  gap: 1.6rem;
-  width: min(100%, 24rem);
+  gap: 2rem;
+  width: min(100%, 28rem);
   margin: 0 auto;
+  padding-top: 1rem;
 }
 
-.form-field {
+.contact-field {
   display: grid;
   gap: 0.55rem;
 }
 
-.form-field label {
+.contact-field label {
   color: #6a7482;
   font-size: 0.95rem;
   font-weight: 500;
 }
 
-.form-field-error {
+.contact-field-error {
   color: #c54f4f;
   font-size: 0.78rem;
 }
 
-.slug-display-input {
-  background: #e9eaed;
-  color: #7e8793;
-  cursor: not-allowed;
+.contact-input {
+  border-radius: 999px;
 }
 
-.slug-display-input:focus {
-  outline: none;
-  border-color: #d7dbe3;
-}
-
-.opening-days-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1rem;
-}
-
-.opening-day-option {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  color: #606b79;
-  font-size: 0.72rem;
-  font-weight: 700;
-}
-
-.form-step-actions {
+.contact-step-actions {
   display: flex;
   justify-content: flex-end;
   gap: 0.9rem;
@@ -95,39 +70,31 @@
 }
 
 @media (max-width: 768px) {
-  .form-step-tabs {
-    gap: 0.75rem;
-  }
-
-  .form-step-tab {
-    font-size: 0.82rem;
-  }
-
-  .form-step-body {
-    width: 100%;
+  .contact-step-body {
+    width: min(100%, 24rem);
   }
 }
 
 @media (max-width: 560px) {
-  .form-step-tabs {
+  .contact-step-tabs {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0.5rem;
   }
 
-  .form-step-tab {
+  .contact-step-tab {
     min-height: 0.7rem;
     padding-bottom: 0.55rem;
   }
 
-  .form-step-tab span {
+  .contact-step-tab span {
     display: none;
   }
 
-  .form-step-actions {
+  .contact-step-actions {
     flex-direction: row;
   }
 
-  .form-step-actions .ui-button {
+  .contact-step-actions .ui-button {
     flex: 1;
     min-width: 0;
   }
