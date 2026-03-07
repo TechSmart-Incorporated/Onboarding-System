@@ -1,0 +1,71 @@
+.info-page {
+  min-height: 100vh;
+  background: #f4f7f7;
+  color: #123333;
+}
+
+.info-main {
+  width: min(960px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+}
+
+.info-main h1 {
+  margin: 0;
+  color: #0f2f2f;
+  font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+  line-height: 1.15;
+}
+
+.info-main p {
+  margin: 0.8rem 0 0;
+  max-width: 74ch;
+}
+
+.info-section {
+  margin-top: 1.6rem;
+  padding: 1.1rem;
+  border: 1px solid #d9e4e4;
+  border-radius: 0.8rem;
+  background: #ffffff;
+}
+
+.info-section h2 {
+  margin: 0;
+  color: #143b3a;
+  font-size: 1.2rem;
+}
+
+.info-section ul,
+.info-section ol {
+  margin: 0.8rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.info-section li + li {
+  margin-top: 0.4rem;
+}
+
+.info-note {
+  margin-top: 1.3rem;
+  padding: 0.9rem 1rem;
+  border-left: 4px solid #149696;
+  background: #eaf8f8;
+  color: #144646;
+}
+
+.info-cta {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: #0d8f93;
+  color: #f6ffff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.info-cta:hover,
+.info-cta:focus-visible {
+  background: #0f9da1;
+}
