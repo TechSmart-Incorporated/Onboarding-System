@@ -7,7 +7,7 @@ services:
       POSTGRES_PASSWORD: n8npass
       POSTGRES_DB: n8n
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ./data/postgres:/var/lib/postgresql/data
 
   n8n:
     image: n8nio/n8n:latest
@@ -18,7 +18,7 @@ services:
       - N8N_BASIC_AUTH_ACTIVE=true
       - N8N_BASIC_AUTH_USER=admin
       - N8N_BASIC_AUTH_PASSWORD=n8n@techsmart
-      # UI Pass: N8N@TechSmart1
+      #UI Pass: N8N@TechSmart1
 
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
@@ -28,15 +28,11 @@ services:
 
       - N8N_HOST=n8n.nickelcy.com
       - N8N_PROTOCOL=https
-      - WEBHOOK_URL=https://n8n.nickelcy.com/
+      - WEBHOOK_URL=https://n8n.1clickcart.com/
       - NODE_ENV=production
 
       - TZ=America/Guyana
     depends_on:
       - postgres
     volumes:
-      - n8n_data:/home/node/.n8n
-
-volumes:
-  postgres_data:
-  n8n_data:
+      - ./data/n8n:/home/node/.n8n
