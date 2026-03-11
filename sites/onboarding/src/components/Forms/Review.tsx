@@ -2,6 +2,7 @@ import axios from 'axios'
 import { GoogleMap, MarkerF, useJsApiLoader } from '@react-google-maps/api'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 import { type BusinessFormData, useBusinessForm } from '../../context/BusinessFormContext'
 import { Button } from '../ui/button'
@@ -52,8 +53,6 @@ function Review() {
   const navigate = useNavigate()
   const { businessForm, resetBusinessForm } = useBusinessForm()
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submissionError, setSubmissionError] = useState('')
-  const [submissionResponse, setSubmissionResponse] = useState<string | null>(null)
   const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
   const submissionEndpoint = import.meta.env.VITE_N8N_SUBMISSION_ENDPOINT
   const { isLoaded } = useJsApiLoader({
@@ -66,35 +65,31 @@ function Review() {
 
   const handleSubmit = async () => {
     if (!submissionEndpoint) {
-      setSubmissionError('Missing VITE_N8N_SUBMISSION_ENDPOINT environment variable.')
+      toast.error('Missing VITE_N8N_SUBMISSION_ENDPOINT environment variable.')
       return
     }
 
     setIsSubmitting(true)
-    setSubmissionError('')
-    setSubmissionResponse(null)
 
     try {
-      const response = await axios.post(submissionEndpoint, payload, {
+      await axios.post(submissionEndpoint, payload, {
         headers: {
           'Content-Type': 'application/json',
         },
       })
 
-      setSubmissionResponse(JSON.stringify(response.data, null, 2))
+      toast.success('Confirmation email sent')
       resetBusinessForm()
       navigate('/')
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        setSubmissionError(
+        toast.error(
           typeof error.response?.data === 'string'
             ? error.response.data
             : JSON.stringify(error.response?.data ?? error.message, null, 2),
         )
       } else {
-        setSubmissionError(
-          error instanceof Error ? error.message : 'Submission failed.',
-        )
+        toast.error(error instanceof Error ? error.message : 'Submission failed.')
       }
     } finally {
       setIsSubmitting(false)
@@ -217,13 +212,6 @@ function Review() {
           <Input id="review-phone" disabled type="tel" value={businessForm.phone} />
         </div>
       </div>
-
-      {submissionError ? (
-        <p className="review-submit-error">{submissionError}</p>
-      ) : null}
-      {submissionResponse ? (
-        <pre className="review-submit-response">{submissionResponse}</pre>
-      ) : null}
 
       <div className="review-actions">
         <Button
