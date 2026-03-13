@@ -1,16 +1,23 @@
+.forms-bg {
+  position: relative;
+  min-height: 100vh;
+  background: #0a0f1a;
+}
+
 .forms-shell {
   position: relative;
   z-index: 2;
   min-height: 100vh;
   padding: 4.75rem 1rem 3rem;
+  height: 100%;
 }
 
 .forms-panel {
-  width: min(100%, 39.75rem);
+  width: min(100%, 46.25rem);
   margin: 0 auto;
-  padding: 2rem 1.75rem 1.25rem;
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 26px 65px rgba(22, 27, 43, 0.16);
+  padding: 2.25rem 2.25rem 1.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
   border-radius: 1.25rem;
 }
 

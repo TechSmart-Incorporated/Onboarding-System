@@ -6,7 +6,7 @@
 
 .review-title {
   margin: 0;
-  color: #2e3238;
+  color: #ffffff;
   font-size: 1.95rem;
   font-weight: 500;
   text-align: center;
@@ -25,51 +25,65 @@
 }
 
 .review-field label {
-  color: #6a7482;
-  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 12px;
   font-weight: 500;
+  letter-spacing: 0.3px;
 }
 
 .review-slug-shell {
   display: grid;
   grid-template-columns: auto 1fr;
   overflow: hidden;
-  border: 1px solid #d7dbe3;
-  border-radius: 999px;
-  background: #fafafb;
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .review-slug-prefix {
   display: inline-flex;
   align-items: center;
   padding: 0.85rem 1rem;
-  color: #8994a2;
-  border-right: 1px solid #d7dbe3;
-  background: #ffffff;
+  color: rgba(255, 255, 255, 0.35);
+  border-right: 0.5px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
   white-space: nowrap;
+  font-size: 14px;
 }
 
 .review-slug-input.ui-input {
   min-width: 0;
   border: 0;
   border-radius: 0;
-  background: #e8eaee;
+  background: transparent;
   box-shadow: none;
 }
 
 .review-days-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 1rem;
+  gap: 0.5rem;
 }
 
 .review-day-option {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  color: #606b79;
-  font-size: 0.72rem;
-  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.review-day-option--enabled {
+  border: 0.5px solid #14b899;
+  background: rgba(20, 184, 153, 0.12);
+  color: #14b899;
+}
+
+.review-day-option--disabled {
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.25);
 }
 
 .review-image-card {
@@ -78,10 +92,11 @@
   justify-content: center;
   min-height: 6.9rem;
   overflow: hidden;
-  border: 1px solid #d7dbe3;
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
-  background: #fbfbfc;
-  color: #8a95a5;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.85rem;
 }
 
 .review-image-card--banner {
@@ -98,9 +113,9 @@
   overflow: hidden;
   height: 12rem;
   width: 100%;
-  border: 1px solid #d7dbe3;
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
-  background: #fbfbfc;
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .review-map-empty {
@@ -108,20 +123,24 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  color: #8a95a5;
+  color: rgba(255, 255, 255, 0.25);
   font-size: 0.92rem;
 }
 
 .review-actions {
   display: flex;
-  justify-content: flex-end;
-  gap: 0.9rem;
-  padding-top: 0.5rem;
+  gap: 12px;
+  width: min(100%, 24rem);
+  margin: 28px auto 0;
+}
+
+.review-actions .ui-button {
+  flex: 1;
 }
 
 .review-submit-error {
   margin: 0;
-  color: #c54f4f;
+  color: #f87171;
   font-size: 0.82rem;
   white-space: pre-wrap;
 }
@@ -130,10 +149,10 @@
   margin: 0;
   padding: 1rem;
   overflow-x: auto;
-  border: 1px solid #d7dbe3;
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
-  background: #fafafb;
-  color: #556375;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.45);
   font-size: 0.78rem;
   line-height: 1.5;
   white-space: pre-wrap;
@@ -152,10 +171,5 @@
 @media (max-width: 560px) {
   .review-actions {
     flex-direction: row;
-  }
-
-  .review-actions .ui-button {
-    flex: 1;
-    min-width: 0;
   }
 }

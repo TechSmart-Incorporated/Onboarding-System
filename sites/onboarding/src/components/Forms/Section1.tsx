@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 
 import { useBusinessForm } from '../../context/BusinessFormContext'
 import { Button } from '../ui/button'
-import { Checkbox } from '../ui/checkbox'
 import { Input } from '../ui/input'
 import { Textarea } from '../ui/textarea'
 import './Section1.css'
@@ -141,13 +140,14 @@ function Section1() {
           <label>Opening Days</label>
           <div className="opening-days-grid">
             {dayLabels.map((day) => (
-              <label key={day.label} className="opening-day-option">
-                <Checkbox
-                  checked={businessForm.schedule[day.index]?.enabled ?? false}
-                  onChange={() => toggleScheduleDay(day.index)}
-                />
-                <span>{day.label}</span>
-              </label>
+              <button
+                key={day.label}
+                type="button"
+                className={`opening-day-btn${businessForm.schedule[day.index]?.enabled ? ' is-selected' : ''}`}
+                onClick={() => toggleScheduleDay(day.index)}
+              >
+                {day.label}
+              </button>
             ))}
           </div>
           {submitAttempted && !hasOpeningDaySelected ? (

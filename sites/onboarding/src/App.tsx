@@ -25,6 +25,13 @@ function App() {
         <Route path="contact" element={<Section4 />} />
         <Route path="review" element={<Review />} />
       </Route>
+      <Route path="/onboard" element={<Forms />}>
+        <Route index element={<Section1 />} />
+        <Route path="branding" element={<Section2 />} />
+        <Route path="location" element={<Section3 />} />
+        <Route path="contact" element={<Section4 />} />
+        <Route path="review" element={<Review />} />
+      </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )

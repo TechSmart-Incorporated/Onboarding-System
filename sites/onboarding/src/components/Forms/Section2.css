@@ -13,7 +13,7 @@
 .branding-step-tab {
   position: relative;
   padding-bottom: 1rem;
-  color: #3f454f;
+  color: rgba(255, 255, 255, 0.35);
   font-size: 0.98rem;
   text-align: center;
 }
@@ -24,20 +24,28 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 0.28rem;
+  height: 2px;
   border-radius: 999px;
-  background: #d0d0d0;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.branding-step-tab.is-complete {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.branding-step-tab.is-active {
+  color: #14b899;
 }
 
 .branding-step-tab.is-complete::after,
 .branding-step-tab.is-active::after {
-  background: #109b9b;
+  background: #14b899;
 }
 
 .branding-step-body {
   display: grid;
   gap: 1.8rem;
-  width: min(100%, 18rem);
+  width: min(100%, 24rem);
   margin: 0 auto;
   margin-inline: auto;
 }
@@ -48,9 +56,10 @@
 }
 
 .branding-upload-group label {
-  color: #6a7482;
-  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 12px;
   font-weight: 500;
+  letter-spacing: 0.3px;
 }
 
 .branding-upload-card {
@@ -58,9 +67,9 @@
   min-height: 6.9rem;
   max-width: 400px;
   padding: 0.75rem;
-  border: 1px solid #d7dbe3;
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
-  background: #fbfbfc;
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .branding-upload-card.is-empty {
@@ -81,10 +90,10 @@
   height: 3.4rem;
   border: 0;
   border-radius: 999px;
-  background: #31b56a;
+  background: #14b899;
   color: #ffffff;
   font-size: 1.55rem;
-  box-shadow: 0 14px 30px rgba(49, 181, 106, 0.24);
+  box-shadow: 0 14px 30px rgba(20, 184, 153, 0.2);
   cursor: pointer;
 }
 
@@ -94,7 +103,7 @@
   border-radius: 0;
   background: transparent;
   box-shadow: none;
-  color: #98a3b2;
+  color: rgba(255, 255, 255, 0.4);
   font-size: 1rem;
 }
 
@@ -112,7 +121,7 @@
   max-height: 400px;
   overflow: hidden;
   border-radius: 0.8rem;
-  background: #eef1f4;
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .branding-upload-preview-frame img {
@@ -134,24 +143,25 @@
 }
 
 .branding-delete-button.ui-button {
-  background: #d96666;
-  color: #ffffff;
+  background: rgba(220, 80, 80, 0.15);
+  border: 0.5px solid rgba(220, 80, 80, 0.3) !important;
+  color: #f87171;
   box-shadow: none;
 }
 
 .branding-upload-status {
-  color: #7d8795;
+  color: rgba(255, 255, 255, 0.35);
   font-size: 0.78rem;
 }
 
 .branding-upload-error {
-  color: #c54f4f;
+  color: #f87171;
   font-size: 0.78rem;
 }
 
 .branding-upload-note {
   margin: -0.85rem 0 0;
-  color: #97a0ad;
+  color: rgba(255, 255, 255, 0.3);
   font-size: 0.78rem;
   line-height: 1.45;
   text-align: center;
@@ -159,9 +169,13 @@
 
 .branding-step-actions {
   display: flex;
-  justify-content: flex-end;
-  gap: 0.9rem;
-  padding-top: 0.5rem;
+  gap: 12px;
+  width: min(100%, 24rem);
+  margin: 28px auto 0;
+}
+
+.branding-step-actions .ui-button {
+  flex: 1;
 }
 
 @media (max-width: 768px) {
@@ -192,10 +206,5 @@
 
   .branding-upload-actions {
     flex-direction: column;
-  }
-
-  .branding-step-actions .ui-button {
-    flex: 1;
-    min-width: 0;
   }
 }

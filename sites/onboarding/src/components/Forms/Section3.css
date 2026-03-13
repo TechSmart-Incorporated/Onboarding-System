@@ -13,7 +13,7 @@
 .location-step-tab {
   position: relative;
   padding-bottom: 1rem;
-  color: #3f454f;
+  color: rgba(255, 255, 255, 0.35);
   font-size: 0.98rem;
   text-align: center;
 }
@@ -24,20 +24,28 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 0.28rem;
+  height: 2px;
   border-radius: 999px;
-  background: #d0d0d0;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.location-step-tab.is-complete {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.location-step-tab.is-active {
+  color: #14b899;
 }
 
 .location-step-tab.is-complete::after,
 .location-step-tab.is-active::after {
-  background: #109b9b;
+  background: #14b899;
 }
 
 .location-step-body {
   display: grid;
   gap: 1.6rem;
-  width: min(100%, 28rem);
+  width: min(100%, 24rem);
   margin: 0 auto;
 }
 
@@ -53,9 +61,10 @@
 }
 
 .location-picker-group label {
-  color: #6a7482;
-  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 12px;
   font-weight: 500;
+  letter-spacing: 0.3px;
 }
 
 .location-address-input {
@@ -66,21 +75,20 @@
   overflow: hidden;
   width: 100%;
   height: 13.5rem;
-  border: 1px solid #d7dbe3;
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
-  background: #fbfbfc;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .location-picker-error,
 .location-picker-state {
-  color: #7c8795;
+  color: rgba(255, 255, 255, 0.4);
   font-size: 0.82rem;
   line-height: 1.5;
 }
 
 .location-picker-error {
-  color: #c54f4f;
+  color: #f87171;
 }
 
 .location-picker-state {
@@ -89,17 +97,21 @@
   justify-content: center;
   min-height: 20rem;
   padding: 1rem;
-  border: 1px solid #d7dbe3;
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
   border-radius: 1.25rem;
-  background: #fafafb;
+  background: rgba(255, 255, 255, 0.03);
   text-align: center;
 }
 
 .location-step-actions {
   display: flex;
-  justify-content: flex-end;
-  gap: 0.9rem;
-  padding-top: 0.5rem;
+  gap: 12px;
+  width: min(100%, 24rem);
+  margin: 28px auto 0;
+}
+
+.location-step-actions .ui-button {
+  flex: 1;
 }
 
 @media (max-width: 768px) {
@@ -129,10 +141,5 @@
 
   .location-step-actions {
     flex-direction: row;
-  }
-
-  .location-step-actions .ui-button {
-    flex: 1;
-    min-width: 0;
   }
 }

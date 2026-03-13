@@ -1,34 +1,21 @@
-import { useState } from 'react'
-
 import Content from '../components/LandingPage/Content'
 import Footer from '../components/LandingPage/Footer'
 import Navbar from '../components/LandingPage/Navbar'
-import backgroundImage from '../assets/background.png'
-import '../components/LandingPage/LandingPage.css'
 
 function Landing() {
-  const [menuOpen, setMenuOpen] = useState(false)
-
-  const handleNavigate = () => {
-    setMenuOpen(false)
-  }
-
   return (
-    <div className="landing-shell">
+    <div className="relative flex flex-col min-h-screen bg-navy">
+      {/* Teal radial glow — top center */}
       <div
-        className="landing-background"
-        style={{
-          transform: 'scale(1.04)',
-          backgroundImage: `url(${backgroundImage})`,
-        }}
+        className="glow absolute top-0 left-1/2 -translate-x-1/2 w-[90vw] h-[110vh] pointer-events-none z-0"
+        style={{ background: 'radial-gradient(circle, rgba(20,184,153,0.13), transparent 60%)' }}
       />
-      <div className="landing-overlay" />
+      <div
+        className="glow absolute bottom-0 right-0 w-[70vw] h-[70vh] pointer-events-none z-0"
+        style={{ background: 'radial-gradient(circle, rgba(20,100,184,0.08), transparent 65%)' }}
+      />
 
-      <Navbar
-        menuOpen={menuOpen}
-        onToggleMenu={() => setMenuOpen((open) => !open)}
-        onNavigate={handleNavigate}
-      />
+      <Navbar />
 
       <Content />
 

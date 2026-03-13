@@ -6,7 +6,6 @@ import { toast } from 'react-toastify'
 
 import { type BusinessFormData, useBusinessForm } from '../../context/BusinessFormContext'
 import { Button } from '../ui/button'
-import { Checkbox } from '../ui/checkbox'
 import { Input } from '../ui/input'
 import { Textarea } from '../ui/textarea'
 import './Review.css'
@@ -131,16 +130,17 @@ function Review() {
         <div className="review-field">
           <label>Opening Days</label>
           <div className="review-days-grid">
-            {dayLabels.map((day) => (
-              <label key={day.label} className="review-day-option">
-                <Checkbox
-                  checked={businessForm.schedule[day.index]?.enabled ?? false}
-                  disabled
-                  readOnly
-                />
-                <span>{day.label}</span>
-              </label>
-            ))}
+            {dayLabels.map((day) => {
+              const enabled = businessForm.schedule[day.index]?.enabled ?? false
+              return (
+                <span
+                  key={day.label}
+                  className={`review-day-option ${enabled ? 'review-day-option--enabled' : 'review-day-option--disabled'}`}
+                >
+                  {day.label}
+                </span>
+              )
+            })}
           </div>
         </div>
 

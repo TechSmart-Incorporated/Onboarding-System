@@ -1,16 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #14b899;
+  --color-navy: #0a0f1a;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.4); }
+}
+
+@utility animate-pulse-dot {
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
 :root {
-  font-family:
-    "Sora",
-    "Segoe UI",
-    sans-serif;
+  font-family: "Sora", "Segoe UI", sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: #102c2b;
-  background: #edf0f0;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #0a0f1a;
 }
 
 html {
@@ -25,6 +38,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 button,
@@ -38,4 +52,33 @@ img {
 
 #root {
   min-height: 100vh;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.is-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (max-width: 767px) {
+  .reveal      { transform: translateY(16px); }
+  .reveal-left { transform: translateX(-16px); }
+  .glow        { display: none; }
 }
