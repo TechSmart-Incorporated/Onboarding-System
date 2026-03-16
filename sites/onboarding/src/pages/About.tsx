@@ -6,7 +6,7 @@ import Navbar from '../components/LandingPage/Navbar'
 const features = [
   'Sell products online',
   'Manage orders and customer checkout',
-  'Process payments',
+  'Process payments via MMG',
   'Support delivery and pickup operations',
   'Handle core store operations in one place',
 ]
@@ -25,7 +25,7 @@ const values = [
   {
     icon: FiGlobe,
     title: 'Local Focus',
-    desc: "Purpose-built for Guyana's market with localized payment, delivery, and support services.",
+    desc: "Purpose-built for Guyana's market with MMG payments, localized delivery, and dedicated support.",
   },
 ]
 

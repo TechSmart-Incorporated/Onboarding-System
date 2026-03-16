@@ -18,7 +18,7 @@ const onboardingSteps = [
 const prepareItems = [
   'Business name and contact details',
   'Business location and operating hours',
-  'Payment and operational preferences',
+  'Payment preferences (MMG and other accepted methods)',
   'Basic store setup details needed for initial provisioning',
 ]
 

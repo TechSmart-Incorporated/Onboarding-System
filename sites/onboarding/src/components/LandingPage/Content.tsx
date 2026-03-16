@@ -6,7 +6,7 @@ import HowItWorks from './HowItWorks'
 const features = [
   { icon: FiShoppingCart, title: 'Online Storefront', desc: 'Launch a fully branded store in minutes. Showcase your products with beautiful layouts.' },
   { icon: FiPackage,      title: 'Order Management', desc: 'Track, manage, and fulfill orders from a single dashboard. Never miss a sale.' },
-  { icon: FiCreditCard,   title: 'Payment Processing', desc: 'Accept local and international payments securely with built-in checkout.' },
+  { icon: FiCreditCard,   title: 'Payment Processing', desc: 'Accept payments via MMG and other methods securely with built-in checkout.' },
   { icon: FiTruck,        title: 'Delivery & Pickup', desc: 'Offer flexible fulfillment — delivery, curbside pickup, or in-store collection.' },
   { icon: FiSettings,     title: 'Store Operations', desc: 'Set hours, manage inventory, configure pricing — all from one control center.' },
   { icon: FiGlobe,        title: 'Reach All of Guyana', desc: 'Connect with customers nationwide. Your store is open 24/7, anywhere.' },

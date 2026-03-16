@@ -17,7 +17,7 @@ const steps = [
   {
     num: '04',
     title: 'Start Selling',
-    desc: 'Your store goes live. Accept orders, process payments, and grow your customer base.',
+    desc: 'Your store goes live. Accept orders, process payments via MMG, and grow your customer base.',
   },
 ]
 
