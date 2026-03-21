@@ -1,0 +1,122 @@
+.features-section {
+  width: 100%;
+  padding: 6rem 2rem;
+  background: #f6f7f9;
+}
+
+.features-inner {
+  max-width: 1126px;
+  margin: 0 auto;
+}
+
+/* Header */
+.features-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.features-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #14b899;
+  margin-bottom: 1rem;
+}
+
+.features-eyebrow-line {
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: #14b899;
+  border-radius: 2px;
+}
+
+.features-heading {
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+  color: #1a2e3b;
+  margin: 0.5rem 0 1rem;
+}
+
+.features-subtext {
+  font-size: 0.975rem;
+  line-height: 1.75;
+  color: #6b7280;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Card */
+.features-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  border: 1px solid #eaecf0;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.2s ease;
+}
+
+.features-card--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.features-card:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.07);
+}
+
+.features-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  flex-shrink: 0;
+}
+
+.features-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a2e3b;
+  margin: 0 0 0.6rem;
+}
+
+.features-card-desc {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .features-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}

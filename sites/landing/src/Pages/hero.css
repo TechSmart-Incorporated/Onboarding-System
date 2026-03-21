@@ -1,12 +1,7 @@
 .hero-section {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
   width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  margin-bottom: 100vh;
+  margin-left: calc(50% - 50vw);
+  min-height: calc(100vh - 64px);
   display: flex;
   align-items: center;
 }
@@ -19,7 +14,7 @@
   max-width: 1126px;
   margin: 0 auto;
   padding: 0 2rem;
-  padding-top: 64px; /* offset for sticky navbar */
+  padding-top: 0;
   box-sizing: border-box;
   gap: 2rem;
 }
@@ -44,6 +39,7 @@
   background: rgba(20, 184, 153, 0.08);
   color: rgba(255, 255, 255, 0.85);
   font-size: 0.85rem;
+  animation: fade-up 0.5s 0.15s ease both;
 }
 
 .hero-badge-dot {
@@ -61,6 +57,7 @@
   letter-spacing: -1px;
   color: #ffffff;
   margin: 0;
+  animation: fade-up 0.55s 0.3s ease both;
 }
 
 .hero-accent {
@@ -73,6 +70,7 @@
   color: rgba(255, 255, 255, 0.65);
   max-width: 420px;
   margin: 0;
+  animation: fade-up 0.55s 0.45s ease both;
 }
 
 .hero-actions {
@@ -80,6 +78,7 @@
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+  animation: fade-up 0.5s 0.6s ease both;
 }
 
 .hero-btn-primary {
@@ -123,6 +122,7 @@
   display: flex;
   gap: 2.5rem;
   padding-top: 0.5rem;
+  animation: fade-up 0.5s 0.75s ease both;
 }
 
 .hero-stat {
@@ -169,7 +169,6 @@
   border-radius: 14px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   white-space: nowrap;
-  animation: notif-float 4s ease-in-out infinite;
   transition: opacity 0.4s ease;
 }
 
@@ -180,13 +179,13 @@
 .hero-notif--top {
   top: 18%;
   right: -10%;
-  animation-delay: 0.5s;
+  animation: fade-up 0.5s 0.85s ease both, notif-float 4s 1.5s ease-in-out infinite;
 }
 
 .hero-notif--bottom {
   bottom: 22%;
   left: -10%;
-  animation-delay: 1.5s;
+  animation: fade-up 0.5s 1.05s ease both, notif-float 4s 1.7s ease-in-out infinite;
 }
 
 .hero-notif-icon {
@@ -226,7 +225,7 @@
 }
 
 .hero-phone-float {
-  animation: float 4s ease-in-out infinite;
+  animation: fade-up 0.6s 0.4s ease both, float 4s 1.2s ease-in-out infinite;
 }
 
 .hero-phone {

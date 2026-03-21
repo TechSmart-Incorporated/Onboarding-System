@@ -1,0 +1,146 @@
+.tmn-section {
+  width: 100%;
+  padding: 6rem 2rem;
+  background: #ffffff;
+}
+
+.tmn-inner {
+  max-width: 1126px;
+  margin: 0 auto;
+}
+
+/* Header */
+.tmn-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.tmn-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #14b899;
+  margin-bottom: 1rem;
+}
+
+.tmn-eyebrow-line {
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: #14b899;
+  border-radius: 2px;
+}
+
+.tmn-heading {
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #1a2e3b;
+  margin: 0.5rem 0 1rem;
+}
+
+.tmn-subtext {
+  font-size: 0.975rem;
+  line-height: 1.75;
+  color: #6b7280;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+/* Grid */
+.tmn-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Card */
+.tmn-card {
+  background: #f6f7f9;
+  border-radius: 18px;
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tmn-card--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stars */
+.tmn-stars {
+  display: flex;
+  gap: 3px;
+  color: #f0a500;
+}
+
+.tmn-star-empty {
+  color: #e5e7eb;
+}
+
+/* Quote */
+.tmn-quote {
+  font-size: 0.925rem;
+  line-height: 1.75;
+  color: #374151;
+  font-style: italic;
+  margin: 0;
+  flex: 1;
+}
+
+/* Author */
+.tmn-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tmn-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e0f5f0;
+  color: #14b899;
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tmn-name {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a2e3b;
+}
+
+.tmn-role {
+  display: block;
+  font-size: 0.775rem;
+  color: #9ca3af;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .tmn-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .tmn-section {
+    padding: 4rem 1.5rem;
+  }
+}

@@ -1,21 +1,27 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import logoMain from '../../assets/logo-main.svg'
 import './navbar.css'
 
 const navLinks = [
-  { label: 'How It Works', href: '#' },
-  { label: 'Features', href: '#' },
+  { label: 'How It Works', href: '#how-it-works' },
+  { label: 'Features', href: '#features' },
   { label: 'The App', href: '#' },
-  { label: 'For Business', href: 'https://business.1clickcart.com', external: true },
-  { label: 'Deliver', href: '#' },
+  { label: 'For Business', href: '#for-business' },
+  { label: 'Deliver', href: '#deliver' },
 ]
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [activeLink, setActiveLink] = useState<string | null>(null)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
       <div className="navbar-inner">
         {/* Logo */}
         <a href="/" className="navbar-logo">
@@ -27,17 +33,11 @@ export default function Navbar() {
         <ul className="navbar-links">
           {navLinks.map((link) => (
             <li key={link.label}>
-              <a
-                href={link.href}
-                className={`navbar-link ${activeLink === link.label ? 'active' : ''}`}
-                onClick={() => setActiveLink(link.label)}
-                {...(link.external && { target: '_blank', rel: 'noopener noreferrer' })}
-              >
+              <a href={link.href} className="navbar-link">
                 {link.label}
               </a>
             </li>
           ))}
-          {/* CTA */}
           <li className="navbar-cta">
             <a href="https://store.1clickcart.com" target="_blank" rel="noopener noreferrer" className="navbar-btn">Shop as Guest</a>
           </li>
@@ -64,9 +64,8 @@ export default function Navbar() {
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className={`navbar-link ${activeLink === link.label ? 'active' : ''}`}
-                  onClick={() => { setActiveLink(link.label); setMenuOpen(false) }}
-                  {...(link.external && { target: '_blank', rel: 'noopener noreferrer' })}
+                  className="navbar-link"
+                  onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
                 </a>

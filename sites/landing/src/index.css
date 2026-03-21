@@ -48,6 +48,16 @@ body {
   overflow-x: hidden;
 }
 
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 h1 {
   font-family: var(--heading);
   font-weight: 500;
