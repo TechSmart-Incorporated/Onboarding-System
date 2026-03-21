@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import { MdLocationPin, MdShoppingCart, MdPayment } from 'react-icons/md'
 import type { IconType } from 'react-icons'
 import './how-it-works.css'
@@ -25,17 +26,17 @@ const steps: { num: number; icon: IconType; title: string; desc: string }[] = [
 ]
 
 export default function HowItWorks() {
+  const sectionRef = useScrollReveal()
   const stepsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const el = stepsRef.current
     if (!el) return
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           el.querySelectorAll<HTMLElement>('.hiw-step').forEach((step, i) => {
-            step.style.animationDelay = `${i * 0.15}s`
+            step.style.transitionDelay = `${i * 0.15}s`
             step.classList.add('hiw-step--visible')
           })
           observer.disconnect()
@@ -43,23 +44,22 @@ export default function HowItWorks() {
       },
       { threshold: 0.15 }
     )
-
     observer.observe(el)
     return () => observer.disconnect()
   }, [])
 
   return (
-    <section className="hiw-section" id="how-it-works">
+    <section className="hiw-section" id="how-it-works" ref={sectionRef}>
       <div className="hiw-inner">
 
         <div className="hiw-header">
-          <span className="hiw-eyebrow">
+          <span className="hiw-eyebrow reveal">
             <span className="hiw-eyebrow-line" />
             How It Works
             <span className="hiw-eyebrow-line" />
           </span>
-          <h2 className="hiw-heading">Order in 3 simple steps</h2>
-          <p className="hiw-subtext">
+          <h2 className="hiw-heading reveal">Order in 3 simple steps</h2>
+          <p className="hiw-subtext reveal">
             No downloads required - start ordering from your browser right now.<br />
             The app is coming soon for an even faster experience.
           </p>

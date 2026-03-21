@@ -66,7 +66,7 @@ export default function TheApp() {
           </ul>
 
           <div className="app-actions">
-            <a href="#" className="app-btn-primary">Get Early Access</a>
+            <a href="https://n8n.1clickcart.com/form/622a823b-e223-4e87-b509-c6bb3d6750c5" target="_blank" rel="noopener noreferrer" className="app-btn-primary">Get Early Access</a>
             <a href="https://store.1clickcart.com" target="_blank" rel="noopener noreferrer" className="app-btn-outline">Order on Web Now</a>
           </div>
         </div>

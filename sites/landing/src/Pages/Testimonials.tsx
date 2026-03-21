@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { BsStarFill, BsStarHalf } from 'react-icons/bs'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import './testimonials.css'
 
 const reviews = [
@@ -38,6 +39,7 @@ function Stars({ count }: { count: number }) {
 }
 
 export default function Testimonials() {
+  const sectionRef = useScrollReveal()
   const gridRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -60,17 +62,17 @@ export default function Testimonials() {
   }, [])
 
   return (
-    <section className="tmn-section">
+    <section className="tmn-section" ref={sectionRef}>
       <div className="tmn-inner">
 
         <div className="tmn-header">
-          <span className="tmn-eyebrow">
+          <span className="tmn-eyebrow reveal">
             <span className="tmn-eyebrow-line" />
             What People Say
             <span className="tmn-eyebrow-line" />
           </span>
-          <h2 className="tmn-heading">Loved by Guyanese</h2>
-          <p className="tmn-subtext">
+          <h2 className="tmn-heading reveal">Loved by Guyanese</h2>
+          <p className="tmn-subtext reveal">
             Early users and businesses already seeing the difference 1ClickCart makes.
           </p>
         </div>

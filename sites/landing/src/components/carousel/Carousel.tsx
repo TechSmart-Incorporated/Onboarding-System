@@ -2,6 +2,7 @@ import { MdLocalPharmacy, MdLocalBar, MdLocalFlorist, MdRestaurant, MdShoppingCa
 import { FaBoxOpen } from 'react-icons/fa'
 import { GiMeat, GiCupcake } from 'react-icons/gi'
 import type { IconType } from 'react-icons'
+import { useScrollReveal } from '../../hooks/useScrollReveal'
 import './carousel.css'
 
 const categories: { icon: IconType; label: string; color: string }[] = [
@@ -17,13 +18,14 @@ const categories: { icon: IconType; label: string; color: string }[] = [
 ]
 
 export default function Carousel() {
+  const ref = useScrollReveal()
   const items = [...categories, ...categories]
 
   return (
-    <section className="carousel-section">
-      <p className="carousel-label">Serving businesses across Guyana</p>
+    <section className="carousel-section" ref={ref}>
+      <p className="carousel-label reveal">Serving businesses across Guyana</p>
 
-      <div className="carousel-track-wrapper">
+      <div className="carousel-track-wrapper reveal">
         <ul className="carousel-track">
           {items.map((cat, i) => {
             const Icon = cat.icon

@@ -50,7 +50,7 @@ export default function Deliver() {
             Guyana law.
           </p>
           <div className="del-actions">
-            <a href="#" className="del-btn-primary">Apply to Deliver</a>
+            <a href="https://n8n.1clickcart.com/form/b8bbcec4-b375-478a-bfca-26bd949d7cfe" target="_blank" rel="noopener noreferrer" className="del-btn-primary">Apply to Deliver</a>
             <a href="#" className="del-btn-outline">Learn More</a>
           </div>
         </div>

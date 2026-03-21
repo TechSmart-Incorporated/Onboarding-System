@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { MdStorefront, MdLocationOn, MdAccountBalanceWallet, MdSchedule, MdStar, MdCardGiftcard } from 'react-icons/md'
 import type { IconType } from 'react-icons'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import './features.css'
 
 const features: { icon: IconType; iconBg: string; iconColor: string; title: string; desc: string }[] = [
@@ -49,6 +50,7 @@ const features: { icon: IconType; iconBg: string; iconColor: string; title: stri
 ]
 
 export default function Features() {
+  const sectionRef = useScrollReveal()
   const gridRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -71,19 +73,19 @@ export default function Features() {
   }, [])
 
   return (
-    <section className="features-section" id="features">
+    <section className="features-section" id="features" ref={sectionRef}>
       <div className="features-inner">
 
         <div className="features-header">
-          <span className="features-eyebrow">
+          <span className="features-eyebrow reveal">
             <span className="features-eyebrow-line" />
             Why 1ClickCart
             <span className="features-eyebrow-line" />
           </span>
-          <h2 className="features-heading">
+          <h2 className="features-heading reveal">
             Built for Guyana.<br />Powered by technology.
           </h2>
-          <p className="features-subtext">
+          <p className="features-subtext reveal">
             Every feature designed with Guyanese consumers and businesses in
             mind - from cash on delivery to local payment methods.
           </p>
