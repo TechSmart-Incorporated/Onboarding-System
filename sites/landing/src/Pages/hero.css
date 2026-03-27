@@ -252,7 +252,6 @@
   .hero-content {
     flex-direction: column;
     justify-content: center;
-    padding-top: 80px;
   }
 
   .hero-right {

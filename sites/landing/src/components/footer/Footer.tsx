@@ -1,5 +1,5 @@
 import logoMain from '../../assets/logo-main.svg'
-import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa'
+// import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa'
 import { MdEmail, MdPhone } from 'react-icons/md'
 import './footer.css'
 
@@ -16,11 +16,11 @@ const joinUs = [
   { label: 'Early Access',   href: '#' },
 ]
 
-const socials = [
-  { icon: FaFacebookF,  href: '#', label: 'Facebook' },
-  { icon: FaInstagram,  href: '#', label: 'Instagram' },
-  { icon: FaWhatsapp,   href: '#', label: 'WhatsApp' },
-]
+// const socials = [
+//   { icon: FaFacebookF,  href: '#', label: 'Facebook' },
+//   { icon: FaInstagram,  href: '#', label: 'Instagram' },
+//   { icon: FaWhatsapp,   href: '#', label: 'WhatsApp' },
+// ]
 
 export default function Footer() {
   return (
@@ -37,13 +37,13 @@ export default function Footer() {
             Guyana's #1 local delivery and ordering platform. Order food,
             groceries, pharmacy, and more — delivered fast.
           </p>
-          <div className="footer-socials">
+          {/* <div className="footer-socials">
             {socials.map(({ icon: Icon, href, label }) => (
               <a key={label} href={href} className="footer-social" aria-label={label}>
                 <Icon size={14} />
               </a>
             ))}
-          </div>
+          </div> */}
         </div>
 
         {/* Platform */}

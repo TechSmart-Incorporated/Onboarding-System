@@ -1,0 +1,11 @@
+services:
+  landing:
+    build:
+      context: ../..        # /home/nick — gives Docker access to both sites/ and docker/
+      dockerfile: sites/landing/Dockerfile
+      target: runner
+    image: landing:latest
+    container_name: landing
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
