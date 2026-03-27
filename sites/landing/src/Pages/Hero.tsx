@@ -34,7 +34,7 @@ export default function Hero() {
               </svg>
               Start Ordering
             </a>
-            <a href="#" className="hero-btn-outline">Get Early App Access</a>
+            <a href="https://n8n.1clickcart.com/form/622a823b-e223-4e87-b509-c6bb3d6750c5" target="_blank" rel="noopener noreferrer" className="hero-btn-outline">Get Early App Access</a>
           </div>
 
           <div className="hero-stats">

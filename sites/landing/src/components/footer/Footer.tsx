@@ -13,7 +13,7 @@ const platform = [
 const joinUs = [
   { label: 'For Businesses', href: '#for-business' },
   { label: 'Become a Driver', href: '#deliver' },
-  { label: 'Early Access',   href: '#' },
+  { label: 'Early Access',   href: 'https://n8n.1clickcart.com/form/622a823b-e223-4e87-b509-c6bb3d6750c5', external: true },
 ]
 
 // const socials = [
