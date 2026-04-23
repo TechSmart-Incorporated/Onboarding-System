@@ -12,7 +12,7 @@ export default function Hero() {
         <div className="hero-left">
           <span className="hero-badge">
             <span className="hero-badge-dot" />
-            Now launching in Guyana
+            Launching Soon in Guyana
           </span>
 
           <h1 className="hero-heading">
